@@ -1,13 +1,12 @@
-
 import React from 'react';
 import Navbar from './components/navbar';
+import Home from './pages/home';
 
 function App() {
   return (
     <div>
       <Navbar />
-      <h1>Welcome to Notlfix!</h1>
-      <p>Here you can find your favorite movies and TV shows.</p>
+      <Home />
     </div>
   );
 }

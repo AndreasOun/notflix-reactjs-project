@@ -1,0 +1,37 @@
+nav {
+  background-color: #141414;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; /* Update this line to move the ul to the right */
+  align-items: center;
+  margin-left: auto;
+}
+
+nav ul li {
+  margin-right: 25px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  padding: 10px;
+}
+
+nav ul li a:hover {
+  color: #e50914;
+}
