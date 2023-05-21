@@ -1,3 +1,8 @@
+body {
+  background-color: #141414;
+  font-family: Arial, sans-serif;
+}
+
 .container {
   margin: 0 auto;
   padding: 0 20px;
@@ -13,6 +18,9 @@
   text-align: center;
   color: #fff;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero::before {
@@ -22,9 +30,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://via.placeholder.com/1920x1080');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   z-index: -1;
   opacity: 0.6;
 }
@@ -40,17 +48,30 @@
   margin-bottom: 40px;
 }
 
+.categories {
+  margin-top: 40px;
+}
+
+.categories h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
 .movie-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .movie-card {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -63,6 +84,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .movie-card .overlay {
@@ -71,12 +93,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-end;
+  padding: 10px;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
@@ -87,21 +108,23 @@
 
 .movie-card .overlay h2 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  color: #fff;
 }
 
 .movie-card .overlay p {
-  font-size: 1rem;
-  margin-bottom: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
 .movie-card .overlay button {
   background-color: #e50914;
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 3px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
@@ -121,6 +144,10 @@
   .movie-list {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
+  }
+
+  .categories h2 {
+    font-size: 1.5rem;
   }
 
   .movie-card .overlay h2 {
