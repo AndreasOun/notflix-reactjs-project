@@ -137,6 +137,38 @@ body {
   cursor: pointer;
 }
 
+.loading-bar-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+}
+
+.loading-bar {
+  height: 8px; /* Adjust the height to make it thicker */
+  background-color: #e50914; /* Netflix red */
+}
+
+.progress {
+  height: 100%;
+  background-color: #fff; /* White */
+  animation: progressAnimation 2s infinite;
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     height: 70vh;
