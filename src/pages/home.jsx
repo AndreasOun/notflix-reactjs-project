@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './home.css';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -104,7 +105,9 @@ function Home() {
                       <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                       <div className="overlay">
                         <h2>{movie.title}</h2>
-                        <button className="watch-now-button">Watch Now</button>
+                        <button className="watch-now-button">
+                          <Link to={`/movies/${movie.id}`} className="button-link">Watch Now</Link>
+                        </button>
                       </div>
                     </div>
                   ))}
