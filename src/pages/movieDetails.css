@@ -1,47 +1,80 @@
-.movie-details {
+.movie-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .movie-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f2f2f2;
+    margin-bottom: 2rem;
+    background-color: #111;
+    padding: 2rem;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
-  .movie-details h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .movie-details p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-  
-  .movie-details .poster-image {
+  .movie-poster {
     width: 200px;
-    height: auto;
-    margin-right: 20px;
-    float: left;
-  }
-  
-  .movie-details .overview {
-    clear: both;
-  }
-  
-  .movie-details .back-button {
-    margin-top: 20px;
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #f2f2f2;
-    color: #333;
-    border: 1px solid #ccc;
+    height: 300px;
+    object-fit: cover;
     border-radius: 5px;
-    text-decoration: none;
+    margin-right: 2rem;
   }
   
-  .movie-details .back-button:hover {
-    background-color: #eaeaea;
+  .movie-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .movie-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .movie-overview {
+    margin-bottom: 1.5rem;
+  }
+  
+  .movie-metadata {
+    margin-top: 1rem;
+  }
+  
+  .metadata-item {
+    margin-bottom: 0.5rem;
+  }
+  
+  .metadata-label {
+    font-weight: bold;
+  }
+  
+  .trailer {
+    max-width: 800px;
+    margin-bottom: 2rem;
+  }
+  
+  .trailer-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .trailer-video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+  
+  .trailer-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   
