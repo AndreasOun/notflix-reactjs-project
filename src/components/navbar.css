@@ -46,3 +46,37 @@ nav ul li a {
 nav ul li a:hover {
   color: #e50914;
 }
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  border: none;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 16px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  margin-right: 10px;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.search-button {
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #e60511;
+}

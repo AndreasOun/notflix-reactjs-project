@@ -88,6 +88,7 @@ function Home() {
         </div>
       ) : (
         <div className="hero" style={{ backgroundImage: `url(${backgroundImage})` }}>
+          <h1>Featured Movie:</h1>
           <h1>{movies.length > 0 && movies[0].title}</h1>
         </div>
       )}
