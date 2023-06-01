@@ -12,8 +12,8 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const categories = [
+    { id: 16, name: 'Animation' },
     { id: 28, name: 'Action' },
-    { id: 16, name: 'Anime' },
     { id: 18, name: 'Drama'},
     { id: 35, name: 'Comedy'},
     { id: 27, name: 'Horror'},  
@@ -83,15 +83,14 @@ function Home() {
   return (
     <div className="container">
       {isLoading ? (
-  <div className="loading-bar-container">
-    <div className="loading-bar" />
-  </div>
-    ) : (
-  <div className="hero" style={{ backgroundImage: `url(${backgroundImage})` }}>
-    <h1>Welcome to Notlfix!</h1>
-    <p>Here you can find your favorite movies and TV shows.</p>
-  </div>
-    )}
+        <div className="loading-bar-container">
+          <div className="loading-bar" />
+        </div>
+      ) : (
+        <div className="hero" style={{ backgroundImage: `url(${backgroundImage})` }}>
+          <h1>{movies.length > 0 && movies[0].title}</h1>
+        </div>
+      )}
       <div className="categories">
         {movies.length > 0 &&
           categories.map((category) => (

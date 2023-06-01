@@ -6,10 +6,21 @@ nav {
   padding: 10px 50px;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 155px;
+  height: 50px;
+  margin-right: 10px;
+}
+
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: flex-end; /* Update this line to move the ul to the right */
+  justify-content: flex-end;
   align-items: center;
   margin-left: auto;
 }

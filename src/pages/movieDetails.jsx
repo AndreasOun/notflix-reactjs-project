@@ -7,6 +7,9 @@ function MovieDetails() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
+  const [cast, setCast] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [activeTab, setActiveTab] = useState('overview');
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -25,39 +28,100 @@ function MovieDetails() {
       if (trailerResponse.data.results.length > 0) {
         setTrailerKey(trailerResponse.data.results[0].key);
       }
+
+      // Fetch cast
+      const castResponse = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+      );
+      setCast(castResponse.data.cast);
+
+      // Fetch reviews
+      const reviewsResponse = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+      );
+      setReviews(reviewsResponse.data.results);
     }
 
     fetchMovieDetails();
   }, [id]);
 
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
   if (!movie) {
     return <div>Loading...</div>;
   }
 
-  return (
-    <div className="movie-details">
-      <h2>{movie.title}</h2>
-      <p>{movie.overview}</p>
-      <p>Release Date: {movie.release_date}</p>
-      <p>Rating: {movie.vote_average}</p>
-      <p>Runtime: {movie.runtime} minutes</p>
-      <p>Genres: {movie.genres.map((genre) => genre.name).join(', ')}</p>
-      <p>Production Companies: {movie.production_companies.map((company) => company.name).join(', ')}</p>
-      <p>Tagline: {movie.tagline}</p>
-      <p>Original Language: {movie.original_language}</p>
+  const backgroundStyle = {
+    backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.poster_path})`,
+  };
 
-      {trailerKey && (
-        <div className="trailer">
+  return (
+    <div className="movie-details" style={backgroundStyle}>
+      <div className="tabs">
+        <button className={activeTab === 'overview' ? 'active' : ''} onClick={() => handleTabClick('overview')}>
+          Overview
+        </button>
+        <button className={activeTab === 'trailer' ? 'active' : ''} onClick={() => handleTabClick('trailer')}>
+          Trailer
+        </button>
+        <button className={activeTab === 'cast' ? 'active' : ''} onClick={() => handleTabClick('cast')}>
+          Cast
+        </button>
+        <button className={activeTab === 'reviews' ? 'active' : ''} onClick={() => handleTabClick('reviews')}>
+          Reviews
+        </button>
+      </div>
+
+      {activeTab === 'overview' && (
+        <div className="tab-content">
+          <h3>Overview</h3>
+          <p>{movie.overview}</p>
+        </div>
+      )}
+
+      {activeTab === 'trailer' && (
+        <div className="tab-content">
           <h3>Trailer</h3>
-          <iframe
-            title="Movie Trailer"
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${trailerKey}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+          {trailerKey && (
+            <div className="trailer">
+              <iframe
+                title="Movie Trailer"
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${trailerKey}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
+        </div>
+      )}
+
+      {activeTab === 'cast' && (
+        <div className="tab-content">
+          <h3>Cast</h3>
+          <ul>
+            {cast.map((actor) => (
+              <li key={actor.id}>{actor.name}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {activeTab === 'reviews' && (
+        <div className="tab-content">
+          <h3>Reviews</h3>
+          <ul>
+            {reviews.map((review) => (
+              <li key={review.id}>
+                <p>{review.author}</p>
+                <p>{review.content}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>

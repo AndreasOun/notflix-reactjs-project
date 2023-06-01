@@ -42,13 +42,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start; 
+  text-align: left; 
   color: #fff;
   overflow: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding: 40px;
 }
 
 .hero::before {
@@ -68,6 +69,7 @@ body {
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .hero p {
@@ -175,7 +177,8 @@ body {
 
 
 
-.show-more-button {
+.show-more-button,
+.watch-now-button {
   background-color: #e50914;
   color: #fff;
   border: none;
@@ -190,7 +193,7 @@ body {
 
 .watch-now-button {
   margin-bottom: 25px;
-  width: 70%;
+  width: 30%;
 }
 
 .show-more-button:hover,
