@@ -35,9 +35,6 @@ function Navbar() {
             </button>
           </form>
         </li>
-        <li>
-          <a href="#">Login</a>
-        </li>
       </ul>
     </nav>
   );

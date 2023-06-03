@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -10,16 +10,17 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const movieSliderRef = useRef(null);
 
   const categories = [
     { id: 16, name: 'Animation' },
     { id: 28, name: 'Action' },
-    { id: 18, name: 'Drama'},
-    { id: 35, name: 'Comedy'},
-    { id: 27, name: 'Horror'},  
-    { id: 10749, name: 'Romance'},
-    { id: 10751, name: 'Family'},
-    { id: 36, name: 'History'},
+    { id: 18, name: 'Drama' },
+    { id: 35, name: 'Comedy' },
+    { id: 27, name: 'Horror' },
+    { id: 10749, name: 'Romance' },
+    { id: 10751, name: 'Family' },
+    { id: 36, name: 'History' },
   ];
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function Home() {
       const fetchedMovies = [];
 
       for (const category of categories) {
-        for (let page = 1; page <= 10; page++) { // Adjust the number of pages per category as desired
+        for (let page = 1; page <= 10; page++) {
           const movieResponse = await axios.get(
             `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=${category.id}&page=${page}`
           );
@@ -53,8 +54,8 @@ function Home() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 6,
+    slidesToScroll: 6,
     responsive: [
       {
         breakpoint: 1024,
@@ -80,6 +81,19 @@ function Home() {
     ],
   };
 
+  const handleMouseUp = () => {
+    if (movieSliderRef.current) {
+      movieSliderRef.current.innerSlider.list.style.pointerEvents = 'auto';
+    }
+  };
+  
+  const handleMouseDown = (event) => {
+    // Prevent default action of the left mouse button
+    if (event.button === 0) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div className="container">
       {isLoading ? (
@@ -93,26 +107,22 @@ function Home() {
         </div>
       )}
       <div className="categories">
-        {movies.length > 0 &&
+      {movies.length > 0 &&
           categories.map((category) => (
             <div key={category.id}>
               <h2>{category.name}</h2>
-              <Slider {...settings} className="movie-list">
+              <Slider {...settings} className="movie-list" ref={(ref) => (movieSliderRef.current = ref)}>
                 {movies
                   .filter((movie) => movie.genre_ids.includes(category.id))
                   .map((movie) => (
-                    <div key={movie.id} className="movie-card">
-                      <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-                      <div className="overlay">
-                        <h2>{movie.title}</h2>
-                        <button className="watch-now-button">
-                          <Link to={`/movies/${movie.id}`} className="button-link">Watch Now</Link>
-                        </button>
+                    <Link to={`/movies/${movie.id}`} className="movie-card" onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+                      <div>
+                        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                       </div>
-                    </div>
+                      <div className="overlay"></div>
+                    </Link>
                   ))}
               </Slider>
-              <button className="show-more-button">Show More</button>
             </div>
           ))}
       </div>
