@@ -181,18 +181,28 @@ body {
   display: none;
 }
 
-
-
-.show-more-button:hover,
-.show-more-button:focus {
-  background-color: #e60511;
-  outline: none;
+.custom-carousel {
+  position: relative;
 }
 
-.show-more-button:disabled {
-  background-color: #999;
-  cursor: not-allowed;
+.custom-carousel .slick-prev,
+.custom-carousel .slick-next {
+  width: 40px;
+  height: 40px; 
+  background-color: #000; 
+  opacity: 0.7; 
+  z-index: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; 
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
 
 @keyframes progressAnimation {
   0% {

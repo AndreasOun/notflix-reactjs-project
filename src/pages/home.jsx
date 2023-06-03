@@ -56,6 +56,7 @@ function Home() {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 6,
+    className: 'custom-carousel',
     responsive: [
       {
         breakpoint: 1024,
@@ -81,9 +82,11 @@ function Home() {
     ],
   };
 
-  const handleMouseUp = () => {
-    if (movieSliderRef.current) {
-      movieSliderRef.current.innerSlider.list.style.pointerEvents = 'auto';
+  const handleMouseUp = (event) => {
+    if (event.button === 0) {
+      // Prevent the click event
+      event.preventDefault();
+      event.stopPropagation();
     }
   };
   
@@ -111,7 +114,7 @@ function Home() {
           categories.map((category) => (
             <div key={category.id}>
               <h2>{category.name}</h2>
-              <Slider {...settings} className="movie-list" ref={(ref) => (movieSliderRef.current = ref)}>
+              <Slider {...settings} className="movie-list custom-carousel" ref={(ref) => (movieSliderRef.current = ref)}>
                 {movies
                   .filter((movie) => movie.genre_ids.includes(category.id))
                   .map((movie) => (
