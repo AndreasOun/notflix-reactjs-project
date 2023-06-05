@@ -1,22 +1,30 @@
 .movie-details {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
   background-position: center;
   background-size: cover;
 }
 
+
 .tabs {
   display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 2rem;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+
 .tab {
+  display: flex;
+  align-items: center;
   padding: 1rem;
-  margin-right: 1rem;
+  margin-bottom: 0.5rem;
   cursor: pointer;
   font-weight: bold;
   color: #ffffff;
@@ -24,6 +32,10 @@
   background-color: transparent;
   outline: none;
   transition: color 0.3s ease;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 200px;
 }
 
 .tab.active {
@@ -33,11 +45,12 @@
 .tab-content {
   max-width: 800px;
   margin-bottom: 2rem;
-  background-color: #111;
+  background-color: #111111;
   padding: 2rem;
   border-radius: 5px;
-  color: #fff;
+  color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  align-self: center;
 }
 
 .tab-content h3 {
@@ -57,3 +70,20 @@
 .tab-content ul li p {
   margin: 0;
 }
+
+.tabs button {
+  background-color: black;
+  color: white;
+  margin: 1px;
+  padding: 55px;
+}
+
+.trailer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+

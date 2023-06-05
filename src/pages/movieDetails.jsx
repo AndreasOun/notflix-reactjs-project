@@ -61,16 +61,16 @@ function MovieDetails() {
     <div className="movie-details" style={backgroundStyle}>
       <div className="tabs">
         <button className={activeTab === 'overview' ? 'active' : ''} onClick={() => handleTabClick('overview')}>
-          Overview
+          OVERVIEW
         </button>
         <button className={activeTab === 'trailer' ? 'active' : ''} onClick={() => handleTabClick('trailer')}>
-          Trailer
+          TRAILER
         </button>
         <button className={activeTab === 'cast' ? 'active' : ''} onClick={() => handleTabClick('cast')}>
-          Cast
+          CAST
         </button>
         <button className={activeTab === 'reviews' ? 'active' : ''} onClick={() => handleTabClick('reviews')}>
-          Reviews
+          REVIEWS
         </button>
       </div>
 
