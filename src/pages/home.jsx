@@ -84,16 +84,18 @@ function Home() {
 
   const handleMouseUp = (event) => {
     if (event.button === 0) {
-      // Prevent the click event
-      event.preventDefault();
-      event.stopPropagation();
+      if (movieSliderRef.current) {
+        movieSliderRef.current.innerSlider.list.style.pointerEvents = 'auto';
+      }
     }
   };
-  
   const handleMouseDown = (event) => {
     // Prevent default action of the left mouse button
     if (event.button === 0) {
       event.preventDefault();
+      if (movieSliderRef.current) {
+        movieSliderRef.current.innerSlider.list.style.pointerEvents = 'none';
+      }
     }
   };
 
