@@ -29,7 +29,7 @@ function Home() {
       const fetchedMovies = [];
 
       for (const category of categories) {
-        for (let page = 1; page <= 10; page++) {
+        for (let page = 1; page <= 5; page++) {
           const movieResponse = await axios.get(
             `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=${category.id}&page=${page}`
           );
