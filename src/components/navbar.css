@@ -80,3 +80,27 @@ nav ul li a:hover {
 .search-button:hover {
   background-color: #e60511;
 }
+
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 125px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  nav ul li {
+    margin-right: 5px;
+  }
+
+  .search-input {
+    width: 65px;
+  }
+
+  .search-button {
+    padding: 8px;
+  }
+}
