@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/notflix-reactjs-project/static/css/main.941c5ecd.css",
+    "main.js": "/notflix-reactjs-project/static/js/main.f80e8ca8.js",
+    "static/media/logo.png": "/notflix-reactjs-project/static/media/logo.0123ef07f2de6b81054f.png",
+    "static/media/slick.svg": "/notflix-reactjs-project/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/notflix-reactjs-project/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/notflix-reactjs-project/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/notflix-reactjs-project/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/notflix-reactjs-project/index.html",
+    "main.941c5ecd.css.map": "/notflix-reactjs-project/static/css/main.941c5ecd.css.map",
+    "main.f80e8ca8.js.map": "/notflix-reactjs-project/static/js/main.f80e8ca8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.941c5ecd.css",
+    "static/js/main.f80e8ca8.js"
+  ]
+}
