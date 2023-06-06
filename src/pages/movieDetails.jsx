@@ -60,18 +60,19 @@ function MovieDetails() {
   return (
     <div className="movie-details" style={backgroundStyle}>
       <div className="tabs">
-        <button className={activeTab === 'overview' ? 'active' : ''} onClick={() => handleTabClick('overview')}>
-          OVERVIEW
-        </button>
-        <button className={activeTab === 'trailer' ? 'active' : ''} onClick={() => handleTabClick('trailer')}>
-          TRAILER
-        </button>
-        <button className={activeTab === 'cast' ? 'active' : ''} onClick={() => handleTabClick('cast')}>
-          CAST
-        </button>
-        <button className={activeTab === 'reviews' ? 'active' : ''} onClick={() => handleTabClick('reviews')}>
-          REVIEWS
-        </button>
+      <button className={`tab ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => handleTabClick('overview')}>
+        OVERVIEW
+      </button>
+      <button className={`tab ${activeTab === 'reviews' ? 'active' : ''}`} onClick={() => handleTabClick('reviews')}>
+        REVIEWS
+      </button>
+      <button className={`tab ${activeTab === 'trailer' ? 'active' : ''}`} onClick={() => handleTabClick('trailer')}>
+        TRAILER
+      </button>
+      <button className={`tab ${activeTab === 'cast' ? 'active' : ''}`} onClick={() => handleTabClick('cast')}>
+        CAST
+      </button>
+        
       </div>
 
       {activeTab === 'overview' && (

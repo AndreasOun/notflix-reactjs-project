@@ -51,37 +51,8 @@
     opacity: 1;
   }
   
-  .movie-card .overlay h2 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: #fff;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
   
-  .movie-card .overlay button {
-    background-color: #e50914;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 3px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
   
-  .button-link {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  .watch-now-button {
-    margin-bottom: 25px;
-    width: 30%;
-  }
   
 
   

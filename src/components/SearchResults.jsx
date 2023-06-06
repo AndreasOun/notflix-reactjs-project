@@ -29,15 +29,11 @@ function SearchResults() {
       <h2>Search Results for "{searchQuery}":</h2>
       <div className="movie-card-list">
         {searchResults.map((movie) => (
-          <div key={movie.id} className="movie-card">
+          <Link to={`/movies/${movie.id}`} key={movie.id} className="movie-card">
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
             <div className="overlay">
-              <h2>{movie.title}</h2>
-              <button className="watch-now-button">
-                <Link to={`/movies/${movie.id}`} className="button-link">Watch Now</Link>
-              </button>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
