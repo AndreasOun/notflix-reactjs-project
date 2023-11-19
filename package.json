@@ -18,8 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start --base-path /",
-    "build": "react-scripts build",
+    "start": "react-scripts start --base-path /notflix-reactjs-project",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -30,7 +29,7 @@
     "provider": "netlify",
     "script": "npm run build",
     "dir": "build",
-    "base": "/"
+    "base": "/notflix-reactjs-project/"
  },
   "eslintConfig": {
     "extends": [
