@@ -11,6 +11,9 @@ function Home() {
   const [backgroundImage, setBackgroundImage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const movieSliderRef = useRef(null);
+  const [isSliderRendered, setIsSliderRendered] = useState(false);
+
+  
 
   const categories = [
     { id: 16, name: 'Animation' },
@@ -23,7 +26,9 @@ function Home() {
     { id: 36, name: 'History' },
   ];
 
-  useEffect(() => {
+
+
+ useEffect(() => {
     async function fetchData() {
       const API_KEY = '8a4ddcf472e26bea20a3ea9f42810899';
       const fetchedMovies = [];
@@ -99,6 +104,16 @@ function Home() {
     }
   };
 
+
+  useEffect(() => {
+    setIsSliderRendered(true);
+  }, []);
+  
+  // Render the Slider component only if it is not rendered yet
+  if (!isSliderRendered) {
+    return null;
+  }
+  
   return (
     <div className="container">
       {isLoading ? (
