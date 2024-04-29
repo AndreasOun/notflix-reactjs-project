@@ -11,7 +11,7 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/notflix-reactjs-project" element={<Home />} />
           <Route path="/movies/:id/*" element={<MovieDetails />} />
           <Route path="/search" element={<SearchResults />} />
         </Routes>
